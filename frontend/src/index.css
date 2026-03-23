@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Netflix-inspired palette: near-black surfaces, #E50914-class red accent.
+  Light mode = soft gray UI with same red (for theme toggle).
+*/
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 220 14% 96%;
+    --foreground: 220 25% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 8%;
+    --primary: 357 92% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 25% 12%;
+    --muted: 220 12% 90%;
+    --muted-foreground: 220 10% 38%;
+    --accent: 220 14% 88%;
+    --accent-foreground: 220 25% 12%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 12% 82%;
+    --input: 220 12% 82%;
+    --ring: 357 92% 47%;
+    --radius: 4px;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 357 92% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 357 92% 52%;
+  }
+}
+
+/* Slightly punchier accent on coarse pointers (touch) */
+@media (pointer: coarse) {
+  :root {
+    --ring: 357 92% 52%;
+  }
+  .dark {
+    --ring: 357 92% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .bg-netflix-chat {
+    background-color: hsl(var(--card));
+    background-image: linear-gradient(
+      165deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--card)) 45%,
+      hsl(var(--muted) / 0.35) 100%
+    );
+  }
+
+  .dark .bg-netflix-chat {
+    background-image: linear-gradient(
+      165deg,
+      hsl(0 0% 6%) 0%,
+      hsl(var(--card)) 40%,
+      hsl(0 0% 14% / 0.9) 100%
+    );
+  }
+}

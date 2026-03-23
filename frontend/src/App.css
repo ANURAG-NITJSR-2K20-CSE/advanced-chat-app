@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,400..600;1,14..32,400..600&display=swap");
+
+.App {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: hsl(var(--background));
+}
